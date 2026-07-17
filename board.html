@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>任務看板</title>
+<style>
+:root {
+  --bg: #f4f5f7; --col-bg: #ebecf0; --card-bg: #ffffff; --text: #172b4d;
+  --muted: #5e6c84; --border: #dfe1e6; --accent: #0079bf; --overdue: #c0392b;
+  --ok: #1e7d45; --shadow: 0 1px 2px rgba(9,30,66,.15);
+}
+:root[data-theme="dark"] {
+  --bg: #1d2125; --col-bg: #161a1d; --card-bg: #22272b; --text: #b6c2cf;
+  --muted: #8c9bab; --border: #363c43; --accent: #579dff; --overdue: #f87168;
+  --ok: #4bce97; --shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d2125; --col-bg: #161a1d; --card-bg: #22272b; --text: #b6c2cf;
+    --muted: #8c9bab; --border: #363c43; --accent: #579dff; --overdue: #f87168;
+    --ok: #4bce97; --shadow: 0 1px 2px rgba(0,0,0,.5);
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 14px/1.5 -apple-system, "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 14px 18px; }
+header h1 { font-size: 18px; margin: 0 8px 0 0; }
+.meta { color: var(--muted); font-size: 12px; }
+.board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0 18px 18px; }
+@media (max-width: 900px) { .board { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .board { grid-template-columns: 1fr; } }
+.col { background: var(--col-bg); border-radius: 10px; padding: 10px; min-height: 120px; }
+.col h2 { font-size: 13px; margin: 2px 4px 10px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.count { background: var(--border); border-radius: 10px; padding: 0 8px; font-size: 12px; }
+.col-cards { display: flex; flex-direction: column; gap: 8px; }
+.card { background: var(--card-bg); border-radius: 8px; padding: 8px 10px; box-shadow: var(--shadow);
+  border-left: 4px solid hsl(var(--hue) 60% 55%); }
+.card-done { opacity: .55; }
+.card-task { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.card-title { font-weight: 600; }
+.card-meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 6px; }
+.step-id { font-size: 11px; color: var(--muted); font-family: ui-monospace, monospace; }
+.chip { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 10px;
+  background: hsl(var(--hue) 55% 88%); color: hsl(var(--hue) 60% 25%); border: none; }
+:root[data-theme="dark"] .chip, :root:not([data-theme="light"]) .chip { background: hsl(var(--hue) 40% 26%); color: hsl(var(--hue) 60% 85%); }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .chip { background: hsl(var(--hue) 55% 88%); color: hsl(var(--hue) 60% 25%); } }
+.chip-none { background: var(--border); color: var(--muted); }
+.filter { cursor: pointer; }
+.filter.active { outline: 2px solid var(--accent); }
+button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; }
+.summary { padding: 0 18px 24px; }
+.summary h2 { font-size: 15px; }
+.task-row { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; margin-bottom: 10px; box-shadow: var(--shadow); }
+.task-row-head { display: flex; align-items: center; gap: 10px; }
+.task-desc { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.progress { height: 6px; background: var(--border); border-radius: 3px; margin: 10px 0 8px; overflow: hidden; }
+.progress-bar { height: 100%; background: var(--accent); }
+.task-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 6px; background: var(--col-bg);
+  border: 1px solid var(--border); color: var(--muted); }
+.badge.overdue { background: var(--overdue); border-color: var(--overdue); color: #fff; }
+.badge.ok { color: var(--ok); border-color: var(--ok); }
+.badge.notify { color: var(--accent); border-color: var(--accent); }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>任務看板</h1>
+  <span class="meta">資料時間:2026-07-17(台北)· 篩選:</span>
+  <button class="chip filter" data-owner="capo" style="--hue:149">capo</button><button class="chip filter" data-owner="amy" style="--hue:237">amy</button><button class="chip filter" data-owner="ben" style="--hue:219">ben</button>
+  <button class="toggle" id="theme-toggle">🌓 主題</button>
+</header>
+<main class="board">
+<section class="col" data-stage="plan"><h2>Plan <span class="count">1</span></h2><div class="col-cards"><article class="card" data-owner="ben" style="--hue:133"><div class="card-task">T1 官網改版</div><div class="card-title">後台 CMS 串接</div><div class="card-meta"><span class="step-id">T1-S4</span><span class="chip" data-owner="ben" style="--hue:219">ben</span></div></article></div></section>
+<section class="col" data-stage="in_dev"><h2>In Dev <span class="count">2</span></h2><div class="col-cards"><article class="card" data-owner="amy" style="--hue:133"><div class="card-task">T1 官網改版</div><div class="card-title">首頁切版</div><div class="card-meta"><span class="step-id">T1-S3</span><span class="chip" data-owner="amy" style="--hue:237">amy</span></div></article>
+<article class="card" data-owner="ben" style="--hue:134"><div class="card-task">T2 內部報表系統</div><div class="card-title">資料管線 PoC</div><div class="card-meta"><span class="step-id">T2-S2</span><span class="chip" data-owner="ben" style="--hue:219">ben</span></div></article></div></section>
+<section class="col" data-stage="in_test"><h2>In Test <span class="count">1</span></h2><div class="col-cards"><article class="card" data-owner="amy" style="--hue:133"><div class="card-task">T1 官網改版</div><div class="card-title">首頁視覺設計</div><div class="card-meta"><span class="step-id">T1-S2</span><span class="chip" data-owner="amy" style="--hue:237">amy</span></div></article></div></section>
+<section class="col" data-stage="done"><h2>Done <span class="count">2</span></h2><div class="col-cards"><article class="card card-done" data-owner="capo" style="--hue:133"><div class="card-task">T1 官網改版</div><div class="card-title">規劃資訊架構</div><div class="card-meta"><span class="step-id">T1-S1</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
+<article class="card card-done" data-owner="amy" style="--hue:134"><div class="card-task">T2 內部報表系統</div><div class="card-title">需求訪談</div><div class="card-meta"><span class="step-id">T2-S1</span><span class="chip" data-owner="amy" style="--hue:237">amy</span></div></article></div></section>
+</main>
+<section class="summary">
+<h2>任務總覽</h2>
+<div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T1 官網改版</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">重新設計公司官網,目標 Q3 上線</div><div class="progress"><div class="progress-bar" style="width:25%"></div></div><div class="task-badges"><span class="badge">步驟 1/4</span> <span class="badge">MVP 上線 · 2026-08-15</span> <span class="badge">Checkpoint 2026-08-01</span> <span class="badge notify">每週追蹤 (mon)</span></div></div>
+<div class="task-row" data-owner="amy"><div class="task-row-head"><strong>T2 內部報表系統</strong><span class="chip" data-owner="amy" style="--hue:237">amy</span></div><div class="task-desc">自動化每週營運報表</div><div class="progress"><div class="progress-bar" style="width:50%"></div></div><div class="task-badges"><span class="badge">步驟 1/2</span> <span class="badge overdue">第一版報表 逾期 7 天</span>  <span class="badge notify">每日追蹤</span></div></div>
+</section>
+<script type="application/json" id="pm-data">
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "官網改版",
+      "description": "重新設計公司官網,目標 Q3 上線",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-17T14:13:06.775Z",
+      "updatedAt": "2026-07-17T14:13:18.720Z",
+      "milestones": [
+        {
+          "name": "MVP 上線",
+          "due": "2026-08-15",
+          "done": false,
+          "doneAt": null
+        }
+      ],
+      "steps": [
+        {
+          "id": "T1-S1",
+          "title": "規劃資訊架構",
+          "stage": "done",
+          "owner": "capo",
+          "createdAt": "2026-07-17T14:13:18.369Z",
+          "updatedAt": "2026-07-17T14:13:18.369Z"
+        },
+        {
+          "id": "T1-S2",
+          "title": "首頁視覺設計",
+          "stage": "in_test",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.421Z",
+          "updatedAt": "2026-07-17T14:13:18.421Z"
+        },
+        {
+          "id": "T1-S3",
+          "title": "首頁切版",
+          "stage": "in_dev",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.482Z",
+          "updatedAt": "2026-07-17T14:13:18.482Z"
+        },
+        {
+          "id": "T1-S4",
+          "title": "後台 CMS 串接",
+          "stage": "plan",
+          "owner": "ben",
+          "createdAt": "2026-07-17T14:13:18.531Z",
+          "updatedAt": "2026-07-17T14:13:18.531Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-08-01",
+          "note": "確認 MVP 進度",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "mon",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T2",
+      "title": "內部報表系統",
+      "description": "自動化每週營運報表",
+      "owner": "amy",
+      "status": "active",
+      "createdAt": "2026-07-17T14:13:06.827Z",
+      "updatedAt": "2026-07-17T14:13:18.951Z",
+      "milestones": [
+        {
+          "name": "第一版報表",
+          "due": "2026-07-10",
+          "done": false,
+          "doneAt": null
+        }
+      ],
+      "steps": [
+        {
+          "id": "T2-S1",
+          "title": "需求訪談",
+          "stage": "done",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.774Z",
+          "updatedAt": "2026-07-17T14:13:18.774Z"
+        },
+        {
+          "id": "T2-S2",
+          "title": "資料管線 PoC",
+          "stage": "in_dev",
+          "owner": "ben",
+          "createdAt": "2026-07-17T14:13:18.849Z",
+          "updatedAt": "2026-07-17T14:13:18.849Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "daily",
+        "weekday": null,
+        "lastNotified": null
+      }
+    }
+  ]
+}
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var saved = localStorage.getItem('pm-theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var dark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('pm-theme', next);
+  });
+  var active = null;
+  document.querySelectorAll('.filter').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      active = active === btn.dataset.owner ? null : btn.dataset.owner;
+      document.querySelectorAll('.filter').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.owner === active);
+      });
+      document.querySelectorAll('.card, .task-row').forEach(function (el) {
+        el.classList.toggle('hidden', !!active && el.dataset.owner !== active);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

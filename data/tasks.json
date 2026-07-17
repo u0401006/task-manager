@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "官網改版",
+      "description": "重新設計公司官網,目標 Q3 上線",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-17T14:13:06.775Z",
+      "updatedAt": "2026-07-17T14:13:18.720Z",
+      "milestones": [
+        {
+          "name": "MVP 上線",
+          "due": "2026-08-15",
+          "done": false,
+          "doneAt": null
+        }
+      ],
+      "steps": [
+        {
+          "id": "T1-S1",
+          "title": "規劃資訊架構",
+          "stage": "done",
+          "owner": "capo",
+          "createdAt": "2026-07-17T14:13:18.369Z",
+          "updatedAt": "2026-07-17T14:13:18.369Z"
+        },
+        {
+          "id": "T1-S2",
+          "title": "首頁視覺設計",
+          "stage": "in_test",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.421Z",
+          "updatedAt": "2026-07-17T14:13:18.421Z"
+        },
+        {
+          "id": "T1-S3",
+          "title": "首頁切版",
+          "stage": "in_dev",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.482Z",
+          "updatedAt": "2026-07-17T14:13:18.482Z"
+        },
+        {
+          "id": "T1-S4",
+          "title": "後台 CMS 串接",
+          "stage": "plan",
+          "owner": "ben",
+          "createdAt": "2026-07-17T14:13:18.531Z",
+          "updatedAt": "2026-07-17T14:13:18.531Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-08-01",
+          "note": "確認 MVP 進度",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "mon",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T2",
+      "title": "內部報表系統",
+      "description": "自動化每週營運報表",
+      "owner": "amy",
+      "status": "active",
+      "createdAt": "2026-07-17T14:13:06.827Z",
+      "updatedAt": "2026-07-17T14:13:18.951Z",
+      "milestones": [
+        {
+          "name": "第一版報表",
+          "due": "2026-07-10",
+          "done": false,
+          "doneAt": null
+        }
+      ],
+      "steps": [
+        {
+          "id": "T2-S1",
+          "title": "需求訪談",
+          "stage": "done",
+          "owner": "amy",
+          "createdAt": "2026-07-17T14:13:18.774Z",
+          "updatedAt": "2026-07-17T14:13:18.774Z"
+        },
+        {
+          "id": "T2-S2",
+          "title": "資料管線 PoC",
+          "stage": "in_dev",
+          "owner": "ben",
+          "createdAt": "2026-07-17T14:13:18.849Z",
+          "updatedAt": "2026-07-17T14:13:18.849Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "daily",
+        "weekday": null,
+        "lastNotified": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+name: 進度追蹤通知
+
+on:
+  schedule:
+    - cron: '17 1 * * *' # 01:17 UTC ≈ 09:17 Asia/Taipei
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency: pm-notify
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Evaluate due items
+        id: due
+        run: |
+          node bin/pm.js due --json > /tmp/due.json
+          cat /tmp/due.json
+          COUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/due.json','utf8')).items.length)")
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Post progress comment
+        if: steps.due.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          TODAY=$(node -e "console.log(require('./lib/store').todayTaipei())")
+          MARKER="<!-- pm-notify:$TODAY -->"
+
+          # Find (or create once) the rolling tracking issue.
+          ISSUE=$(gh issue list --repo "$REPO" --label pm-notify --state open --json number --jq '.[0].number // empty')
+          if [ -z "$ISSUE" ]; then
+            gh label create pm-notify --repo "$REPO" --description "自動進度追蹤" --color 0079bf 2>/dev/null || true
+            ISSUE=$(gh issue create --repo "$REPO" --title "進度追蹤" --label pm-notify \
+              --body "此 issue 由排程自動更新,每日彙整到期的 checkpoint 與追蹤提醒。" \
+              | grep -oE '[0-9]+$')
+          fi
+
+          # Idempotency: skip if today's comment already exists (re-run / manual dispatch).
+          if gh issue view "$ISSUE" --repo "$REPO" --comments --json comments \
+               --jq '.comments[].body' | grep -qF "$MARKER"; then
+            echo "今日已通知過,跳過。"
+            exit 0
+          fi
+
+          TASK_IDS=$(node -e "
+            const d = JSON.parse(require('fs').readFileSync('/tmp/due.json','utf8'));
+            console.log([...new Set(d.items.map(i => i.taskId))].join(','));
+          ")
+          {
+            echo "$MARKER"
+            node -e "
+              const d = JSON.parse(require('fs').readFileSync('/tmp/due.json','utf8'));
+              const cps = d.items.filter(i => i.type === 'checkpoint');
+              const nts = d.items.filter(i => i.type === 'notify');
+              if (cps.length) {
+                console.log('## ⏰ 今日檢查點');
+                for (const c of cps) console.log(\`- **\${c.taskId} \${c.title}** — \${c.date}\${c.overdue ? '(逾期)' : ''}\${c.note ? ':' + c.note : ''}\`);
+                console.log('');
+              }
+              if (nts.length) console.log('## 📣 進度追蹤\n');
+            "
+            node bin/pm.js report --tasks "$TASK_IDS" | tail -n +2
+          } > /tmp/comment.md
+          gh issue comment "$ISSUE" --repo "$REPO" --body-file /tmp/comment.md
+
+      - name: Mark notified and refresh board
+        if: steps.due.outputs.count != '0'
+        run: |
+          node bin/pm.js due --mark
+          node bin/pm.js board
+
+      - name: Commit state
+        if: steps.due.outputs.count != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tasks.json board.html
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: mark notifications sent ($(node -e "console.log(require('./lib/store').todayTaipei())"))"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

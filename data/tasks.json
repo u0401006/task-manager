@@ -158,9 +158,9 @@
       "title": "realtime-news-scout 選稿驗證期",
       "description": "editor_smoke_v2 每日多視窗驗證 + skill-evo 詞彙迭代(v1.55.0,7/16 Recall 93.8%)",
       "owner": "capo",
-      "status": "active",
+      "status": "archived",
       "createdAt": "2026-07-18T02:49:10.933Z",
-      "updatedAt": "2026-07-18T02:49:11.150Z",
+      "updatedAt": "2026-07-18T08:55:41.614Z",
       "milestones": [],
       "steps": [
         {
@@ -391,9 +391,9 @@
       "title": "殭屍 PR/分支大掃除",
       "description": "news-scout PR#19(閒置2月)、KG 兩個 QA PR(4月/內容重疊)、gov-crawler PR#27 + 10 條 autofix 殘枝",
       "owner": "capo",
-      "status": "active",
+      "status": "archived",
       "createdAt": "2026-07-18T02:49:47.164Z",
-      "updatedAt": "2026-07-18T02:49:47.350Z",
+      "updatedAt": "2026-07-18T08:55:41.683Z",
       "milestones": [],
       "steps": [
         {
@@ -497,6 +497,180 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "mon",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T13",
+      "title": "news-knowledge-graph 維運觀察",
+      "description": "從 478 萬篇稿件萃取 entity/共現關係,供 realtime-news-scout 判讀重要性;目前轉為每日 cron snapshot 維運模式,無人為開發",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:04.573Z",
+      "updatedAt": "2026-07-18T08:57:04.730Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T13-S1",
+          "title": "每日 KG snapshot 健康度確認",
+          "stage": "in_dev",
+          "owner": "capo",
+          "createdAt": "2026-07-18T08:57:04.626Z",
+          "updatedAt": "2026-07-18T08:57:04.626Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-08-01",
+          "note": "確認 2 個閒置 QA PR(3月底,內容重疊)是否該合一處理或關閉",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T14",
+      "title": "cna-translation-council 觀察期",
+      "description": "7/17 完成大型 refactor(整併翻譯產出/審核服務,pytest 20 passed);越南文/西班牙文每日 cron 產線運作中,先觀察一週穩定度",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:04.793Z",
+      "updatedAt": "2026-07-18T08:57:04.971Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T14-S1",
+          "title": "refactor 後穩定度觀察",
+          "stage": "in_test",
+          "owner": "capo",
+          "createdAt": "2026-07-18T08:57:04.857Z",
+          "updatedAt": "2026-07-18T08:57:04.857Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-24",
+          "note": "refactor 後一週:cron 產線是否穩定、README 是否需更新",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T15",
+      "title": "auto-gov-crawler 維運觀察",
+      "description": "131 個政府公告來源爬蟲;自動偵錯 -> Claude autofix 開 PR -> 人工合併的流程本身健康,純維運",
+      "owner": "karen",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:05.020Z",
+      "updatedAt": "2026-07-18T08:57:05.167Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T15-S1",
+          "title": "autofix PR 人工合併確認",
+          "stage": "in_dev",
+          "owner": "karen",
+          "createdAt": "2026-07-18T08:57:05.069Z",
+          "updatedAt": "2026-07-18T08:57:05.069Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-08-01",
+          "note": "PR#27(可能已被#39取代)與 10 條 autofix 殘枝是否清理",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T16",
+      "title": "receipt-intake-to-report 維運觀察",
+      "description": "LINE Bot 報帳系統;role 更名與黑潮選項本週已合併收尾,無半成品",
+      "owner": "karen",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:05.215Z",
+      "updatedAt": "2026-07-18T08:57:05.307Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T16-S1",
+          "title": "上線後穩定度觀察",
+          "stage": "done",
+          "owner": "karen",
+          "createdAt": "2026-07-18T08:57:05.261Z",
+          "updatedAt": "2026-07-18T08:57:05.261Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T17",
+      "title": "donate_reconciliation 維運觀察",
+      "description": "小額捐款對帳工具;藍新 CSV 解析與 Chrome 外掛本週連修,屬邊上線邊修節奏",
+      "owner": "karen",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:05.352Z",
+      "updatedAt": "2026-07-18T08:57:05.446Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T17-S1",
+          "title": "對帳穩定度觀察",
+          "stage": "in_dev",
+          "owner": "karen",
+          "createdAt": "2026-07-18T08:57:05.398Z",
+          "updatedAt": "2026-07-18T08:57:05.398Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T18",
+      "title": "cna-shorts-ai-workspace 維運觀察",
+      "description": "短影音 AI 製作 workspace;IG 限動卡功能本週完成,功能穩定、小步迭代中",
+      "owner": "chiatzu",
+      "status": "active",
+      "createdAt": "2026-07-18T08:57:05.495Z",
+      "updatedAt": "2026-07-18T08:57:05.588Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T18-S1",
+          "title": "小步迭代觀察",
+          "stage": "in_dev",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T08:57:05.542Z",
+          "updatedAt": "2026-07-18T08:57:05.542Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
         "lastNotified": null
       }
     }

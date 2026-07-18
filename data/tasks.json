@@ -6,9 +6,9 @@
       "title": "官網改版",
       "description": "重新設計公司官網,目標 Q3 上線",
       "owner": "capo",
-      "status": "active",
+      "status": "archived",
       "createdAt": "2026-07-17T14:13:06.775Z",
-      "updatedAt": "2026-07-17T14:13:18.720Z",
+      "updatedAt": "2026-07-18T02:50:07.413Z",
       "milestones": [
         {
           "name": "MVP 上線",
@@ -69,9 +69,9 @@
       "title": "內部報表系統",
       "description": "自動化每週營運報表",
       "owner": "amy",
-      "status": "active",
+      "status": "archived",
       "createdAt": "2026-07-17T14:13:06.827Z",
-      "updatedAt": "2026-07-17T14:13:18.951Z",
+      "updatedAt": "2026-07-18T02:50:07.468Z",
       "milestones": [
         {
           "name": "第一版報表",
@@ -103,6 +103,401 @@
         "cadence": "daily",
         "weekday": null,
         "lastNotified": "2026-07-18"
+      }
+    },
+    {
+      "id": "T3",
+      "title": "linebot 積壓清理(安全修補優先)",
+      "description": "6 條未合併分支;LIFF 檔名 XSS 與 /ff open proxy 修補 7/07 起躺在分支未進 main;另有 temp file 碰撞修復",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:10.564Z",
+      "updatedAt": "2026-07-18T02:49:10.880Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T3-S1",
+          "title": "合併 LIFF XSS + /ff proxy 安全修補",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:10.643Z",
+          "updatedAt": "2026-07-18T02:49:10.643Z"
+        },
+        {
+          "id": "T3-S2",
+          "title": "temp file 跨請求碰撞修復合併",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:10.718Z",
+          "updatedAt": "2026-07-18T02:49:10.718Z"
+        },
+        {
+          "id": "T3-S3",
+          "title": "其餘未合併分支盤點處置",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:10.765Z",
+          "updatedAt": "2026-07-18T02:49:10.765Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-21",
+          "note": "安全修補是否已進 main",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "daily",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T4",
+      "title": "realtime-news-scout 選稿驗證期",
+      "description": "editor_smoke_v2 每日多視窗驗證 + skill-evo 詞彙迭代(v1.55.0,7/16 Recall 93.8%)",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:10.933Z",
+      "updatedAt": "2026-07-18T02:49:11.150Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T4-S1",
+          "title": "editor_smoke_v2 每日視窗驗證",
+          "stage": "in_dev",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:10.989Z",
+          "updatedAt": "2026-07-18T02:49:10.989Z"
+        },
+        {
+          "id": "T4-S2",
+          "title": "vocab 迭代(FN/FP 根因分析)",
+          "stage": "in_dev",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:11.044Z",
+          "updatedAt": "2026-07-18T02:49:11.044Z"
+        },
+        {
+          "id": "T4-S3",
+          "title": "定義驗證期收斂標準",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:11.098Z",
+          "updatedAt": "2026-07-18T02:49:11.098Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "mon",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T5",
+      "title": "ndx-askcna-main 收尾",
+      "description": "會員訂閱金流系統;2 條 claude/ 分支比 main 新(integrate-chat-service 部署重構);issue #2 部署驗證 8/10",
+      "owner": "chiatzu",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:27.042Z",
+      "updatedAt": "2026-07-18T02:49:27.224Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T5-S1",
+          "title": "integrate-chat-service 分支處置",
+          "stage": "in_dev",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.086Z",
+          "updatedAt": "2026-07-18T02:49:27.086Z"
+        },
+        {
+          "id": "T5-S2",
+          "title": "issue #2 部署驗證 10/10",
+          "stage": "in_test",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.131Z",
+          "updatedAt": "2026-07-18T02:49:27.131Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-24",
+          "note": "未合併分支處置 + 部署驗證進度",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "tue",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T6",
+      "title": "finance-project-management 實戰回饋期",
+      "description": "專案財務對帳系統剛上線(7/12-7/16 共 23 commits);MaintenancePage 分區對照/區段預算兩分頁停用未完成",
+      "owner": "chiatzu",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:27.272Z",
+      "updatedAt": "2026-07-18T02:49:27.473Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T6-S1",
+          "title": "實戰資料回饋修正",
+          "stage": "in_dev",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.326Z",
+          "updatedAt": "2026-07-18T02:49:27.326Z"
+        },
+        {
+          "id": "T6-S2",
+          "title": "MaintenancePage:分區對照",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.370Z",
+          "updatedAt": "2026-07-18T02:49:27.370Z"
+        },
+        {
+          "id": "T6-S3",
+          "title": "MaintenancePage:區段預算",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.428Z",
+          "updatedAt": "2026-07-18T02:49:27.428Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "tue",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T7",
+      "title": "video-weeklynews 後半:影片渲染端",
+      "description": "前半(輸入網站)7/16 完成;後半實際影片渲染端尚未開始",
+      "owner": "chiatzu",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:27.515Z",
+      "updatedAt": "2026-07-18T02:49:27.696Z",
+      "milestones": [
+        {
+          "name": "渲染端 MVP",
+          "due": "2026-08-31",
+          "done": false,
+          "doneAt": null
+        }
+      ],
+      "steps": [
+        {
+          "id": "T7-S1",
+          "title": "渲染端技術選型",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.561Z",
+          "updatedAt": "2026-07-18T02:49:27.561Z"
+        },
+        {
+          "id": "T7-S2",
+          "title": "渲染端 MVP",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T02:49:27.607Z",
+          "updatedAt": "2026-07-18T02:49:27.607Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "tue",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T8",
+      "title": "transcribe-api 即時字幕後續",
+      "description": "即時轉錄字幕 7/17 已合併上線;YouTube CC 字幕注入已實作但 UI 暫隱,需決策開關",
+      "owner": "karen",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:46.781Z",
+      "updatedAt": "2026-07-18T02:49:46.922Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T8-S1",
+          "title": "YouTube CC UI 開關決策",
+          "stage": "plan",
+          "owner": "karen",
+          "createdAt": "2026-07-18T02:49:46.828Z",
+          "updatedAt": "2026-07-18T02:49:46.828Z"
+        },
+        {
+          "id": "T8-S2",
+          "title": "live 轉錄穩定性觀測",
+          "stage": "in_test",
+          "owner": "karen",
+          "createdAt": "2026-07-18T02:49:46.876Z",
+          "updatedAt": "2026-07-18T02:49:46.876Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "wed",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T9",
+      "title": "cna-mcp-client 前後端整合",
+      "description": "AskCNA 前端;chat/tools/sessions 已接真後端,sessions 清單/用量/auth 留 mock 等後端(issue #7)",
+      "owner": "karen",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:46.975Z",
+      "updatedAt": "2026-07-18T02:49:47.117Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T9-S1",
+          "title": "等待後端端點(issue #7)",
+          "stage": "plan",
+          "owner": "karen",
+          "createdAt": "2026-07-18T02:49:47.019Z",
+          "updatedAt": "2026-07-18T02:49:47.019Z"
+        },
+        {
+          "id": "T9-S2",
+          "title": "sessions/用量/auth 接真後端",
+          "stage": "plan",
+          "owner": "karen",
+          "createdAt": "2026-07-18T02:49:47.066Z",
+          "updatedAt": "2026-07-18T02:49:47.066Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "wed",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T10",
+      "title": "殭屍 PR/分支大掃除",
+      "description": "news-scout PR#19(閒置2月)、KG 兩個 QA PR(4月/內容重疊)、gov-crawler PR#27 + 10 條 autofix 殘枝",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:47.164Z",
+      "updatedAt": "2026-07-18T02:49:47.350Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T10-S1",
+          "title": "news-scout PR#19 處置",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.211Z",
+          "updatedAt": "2026-07-18T02:49:47.211Z"
+        },
+        {
+          "id": "T10-S2",
+          "title": "KG 兩個 QA PR 合一處理",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.255Z",
+          "updatedAt": "2026-07-18T02:49:47.255Z"
+        },
+        {
+          "id": "T10-S3",
+          "title": "gov-crawler PR#27 + autofix 分支清理",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.304Z",
+          "updatedAt": "2026-07-18T02:49:47.304Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-25",
+          "note": "大掃除是否完成",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T11",
+      "title": "discord-claude-bridge 收尾",
+      "description": "claude/session-gmecxf 分支(!cancel 指令 + stream-json 即時進度)比 main 新,未合併",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:47.393Z",
+      "updatedAt": "2026-07-18T02:49:47.527Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T11-S1",
+          "title": "merge !cancel + 進度串流分支",
+          "stage": "in_test",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.440Z",
+          "updatedAt": "2026-07-18T02:49:47.440Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-22",
+          "note": "分支是否已合併",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "mon",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T12",
+      "title": "cna-photo-crop-studio 迭代",
+      "description": "7/15-16 完成 Phase 1-4 + 深連結/無頭入口/科學化修圖建議;進入編輯實測回饋期",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T02:49:47.576Z",
+      "updatedAt": "2026-07-18T02:49:47.710Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T12-S1",
+          "title": "編輯實測回饋收集",
+          "stage": "in_test",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.622Z",
+          "updatedAt": "2026-07-18T02:49:47.622Z"
+        },
+        {
+          "id": "T12-S2",
+          "title": "下一輪迭代範圍決策",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-18T02:49:47.665Z",
+          "updatedAt": "2026-07-18T02:49:47.665Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "mon",
+        "lastNotified": null
       }
     }
   ]

@@ -673,6 +673,80 @@
         "weekday": null,
         "lastNotified": null
       }
+    },
+    {
+      "id": "T19",
+      "title": "cna-mcp-server 核心服務追蹤",
+      "description": "CNA 新聞搜尋 MCP Server,AskCNA/cna-mcp-client 背後核心依賴。7/04-08 密集調校搜尋品質(年鑑日期查詢、關鍵字數字展開、近期優先策略、零命中重試 checklist)+ 新增 translation-lookup 工具 + qsearch lang 參數(英/印尼/日文)。h-chiatzu 單人直推 main。",
+      "owner": "chiatzu",
+      "status": "active",
+      "createdAt": "2026-07-18T09:06:53.797Z",
+      "updatedAt": "2026-07-18T09:06:54.198Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T19-S1",
+          "title": "dev 分岔分支處置(與 main 岔開 51 commits,5週未動)",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T09:06:53.967Z",
+          "updatedAt": "2026-07-18T09:06:53.967Z"
+        },
+        {
+          "id": "T19-S2",
+          "title": "刪除已合併的 sql-combined 分支",
+          "stage": "plan",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T09:06:54.044Z",
+          "updatedAt": "2026-07-18T09:06:54.044Z"
+        },
+        {
+          "id": "T19-S3",
+          "title": "後續搜尋品質/多語擴充觀察",
+          "stage": "in_dev",
+          "owner": "chiatzu",
+          "createdAt": "2026-07-18T09:06:54.112Z",
+          "updatedAt": "2026-07-18T09:06:54.112Z"
+        }
+      ],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "weekly",
+        "weekday": "thu",
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T20",
+      "title": "cna-mcp-eval:合併 PR #12",
+      "description": "研究進度簡報 + 四模型逐題比較表(自包含 HTML,無程式風險),6/22 開閒置近4週未 review。合併後降為純維運觀察,repo 本身屬里程碑式研究歸檔非持續開發。",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-18T09:06:54.271Z",
+      "updatedAt": "2026-07-18T09:06:54.453Z",
+      "milestones": [],
+      "steps": [
+        {
+          "id": "T20-S1",
+          "title": "review + 合併 PR #12",
+          "stage": "in_test",
+          "owner": "capo",
+          "createdAt": "2026-07-18T09:06:54.329Z",
+          "updatedAt": "2026-07-18T09:06:54.329Z"
+        }
+      ],
+      "checkpoints": [
+        {
+          "date": "2026-07-25",
+          "note": "PR #12 是否已合併",
+          "lastNotified": null
+        }
+      ],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
     }
   ]
 }

@@ -1,0 +1,54 @@
+name: 部署看板至 GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/tasks.json'
+      - 'lib/board.js'
+      - 'lib/store.js'
+      - 'lib/report.js'
+  schedule:
+    - cron: '17 1,7,13,19 * * *' # 每 6 小時(台北 09:17/15:17/21:17/03:17),刷新逾期天數等時間相關狀態
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 產生看板
+        run: |
+          mkdir -p dist
+          node bin/pm.js board -o dist/index.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

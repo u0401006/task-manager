@@ -747,6 +747,40 @@
         "weekday": null,
         "lastNotified": null
       }
+    },
+    {
+      "id": "T21",
+      "title": "九合一選舉開票機制、鏡面套用",
+      "description": "[idea] 九合一選舉開票即時呈現機制與鏡面站台套用,細節待釐清(範圍、資料來源、套用哪些既有鏡面模板)",
+      "owner": "",
+      "status": "active",
+      "createdAt": "2026-07-20T10:30:44.432Z",
+      "updatedAt": "2026-07-20T10:30:44.509Z",
+      "milestones": [],
+      "steps": [],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T22",
+      "title": "網站 nav 改為動態資料驅動",
+      "description": "[idea] 網站導覽選單改讀動態資料來源,取代目前寫死的固定分類結構,讓分類可彈性調整不需改版",
+      "owner": "capo",
+      "status": "active",
+      "createdAt": "2026-07-20T10:30:44.584Z",
+      "updatedAt": "2026-07-20T10:30:44.655Z",
+      "milestones": [],
+      "steps": [],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
     }
   ]
 }

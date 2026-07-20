@@ -150,7 +150,7 @@
       "notify": {
         "cadence": "daily",
         "weekday": null,
-        "lastNotified": "2026-07-19"
+        "lastNotified": "2026-07-20"
       }
     },
     {
@@ -463,7 +463,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "mon",
-        "lastNotified": null
+        "lastNotified": "2026-07-20"
       }
     },
     {
@@ -497,7 +497,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "mon",
-        "lastNotified": null
+        "lastNotified": "2026-07-20"
       }
     },
     {

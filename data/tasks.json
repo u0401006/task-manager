@@ -144,13 +144,13 @@
         {
           "date": "2026-07-21",
           "note": "安全修補是否已進 main",
-          "lastNotified": null
+          "lastNotified": "2026-07-21"
         }
       ],
       "notify": {
         "cadence": "daily",
         "weekday": null,
-        "lastNotified": "2026-07-20"
+        "lastNotified": "2026-07-21"
       }
     },
     {
@@ -232,7 +232,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "tue",
-        "lastNotified": null
+        "lastNotified": "2026-07-21"
       }
     },
     {
@@ -274,7 +274,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "tue",
-        "lastNotified": null
+        "lastNotified": "2026-07-21"
       }
     },
     {
@@ -315,7 +315,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "tue",
-        "lastNotified": null
+        "lastNotified": "2026-07-21"
       }
     },
     {

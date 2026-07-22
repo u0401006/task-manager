@@ -61,6 +61,8 @@ jobs:
           ")
           {
             echo "$MARKER"
+            echo "@u0401006"
+            echo ""
             node -e "
               const d = JSON.parse(require('fs').readFileSync('/tmp/due.json','utf8'));
               const cps = d.items.filter(i => i.type === 'checkpoint');

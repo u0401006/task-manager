@@ -781,6 +781,57 @@
         "weekday": null,
         "lastNotified": null
       }
+    },
+    {
+      "id": "T23",
+      "title": "大師學院:線上學習平台",
+      "description": "[idea] 線上學習平台構想,已有初步討論與文件。參考:Claude session https://claude.ai/code/session_01YNbzXu4SWCCiYPf2NtCbWU、Artifact https://claude.ai/code/artifact/3218b8fd-c127-456a-ad6d-e4838da8ed47",
+      "owner": "",
+      "status": "active",
+      "createdAt": "2026-07-22T04:01:44.300Z",
+      "updatedAt": "2026-07-22T04:01:44.471Z",
+      "milestones": [],
+      "steps": [],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T24",
+      "title": "資安管審會議流程討論",
+      "description": "[idea] 資安管理審查會議的流程討論,細節待釐清",
+      "owner": "",
+      "status": "active",
+      "createdAt": "2026-07-22T04:01:44.558Z",
+      "updatedAt": "2026-07-22T04:01:44.661Z",
+      "milestones": [],
+      "steps": [],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
+    },
+    {
+      "id": "T25",
+      "title": "片庫媒資管理平台",
+      "description": "[idea] 片庫媒資(影音資產)管理平台構想,細節待釐清",
+      "owner": "",
+      "status": "active",
+      "createdAt": "2026-07-22T04:01:44.742Z",
+      "updatedAt": "2026-07-22T04:01:44.819Z",
+      "milestones": [],
+      "steps": [],
+      "checkpoints": [],
+      "notify": {
+        "cadence": "off",
+        "weekday": null,
+        "lastNotified": null
+      }
     }
   ]
 }

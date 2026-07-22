@@ -150,7 +150,7 @@
       "notify": {
         "cadence": "daily",
         "weekday": null,
-        "lastNotified": "2026-07-21"
+        "lastNotified": "2026-07-22"
       }
     },
     {
@@ -349,7 +349,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "wed",
-        "lastNotified": null
+        "lastNotified": "2026-07-22"
       }
     },
     {
@@ -383,7 +383,7 @@
       "notify": {
         "cadence": "weekly",
         "weekday": "wed",
-        "lastNotified": null
+        "lastNotified": "2026-07-22"
       }
     },
     {
@@ -457,7 +457,7 @@
         {
           "date": "2026-07-22",
           "note": "分支是否已合併",
-          "lastNotified": null
+          "lastNotified": "2026-07-22"
         }
       ],
       "notify": {

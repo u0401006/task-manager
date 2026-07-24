@@ -110,34 +110,34 @@
       "title": "linebot 積壓清理(安全修補優先)",
       "description": "6 條未合併分支;LIFF 檔名 XSS 與 /ff open proxy 修補 7/07 起躺在分支未進 main;另有 temp file 碰撞修復",
       "owner": "capo",
-      "status": "active",
+      "status": "done",
       "createdAt": "2026-07-18T02:49:10.564Z",
-      "updatedAt": "2026-07-18T02:49:10.880Z",
+      "updatedAt": "2026-07-24T01:24:23.300Z",
       "milestones": [],
       "steps": [
         {
           "id": "T3-S1",
           "title": "合併 LIFF XSS + /ff proxy 安全修補",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.643Z",
-          "updatedAt": "2026-07-18T02:49:10.643Z"
+          "updatedAt": "2026-07-24T01:24:16.660Z"
         },
         {
           "id": "T3-S2",
           "title": "temp file 跨請求碰撞修復合併",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.718Z",
-          "updatedAt": "2026-07-18T02:49:10.718Z"
+          "updatedAt": "2026-07-24T01:24:16.723Z"
         },
         {
           "id": "T3-S3",
           "title": "其餘未合併分支盤點處置",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.765Z",
-          "updatedAt": "2026-07-18T02:49:10.765Z"
+          "updatedAt": "2026-07-24T01:24:16.780Z"
         }
       ],
       "checkpoints": [
@@ -148,7 +148,7 @@
         }
       ],
       "notify": {
-        "cadence": "daily",
+        "cadence": "off",
         "weekday": null,
         "lastNotified": "2026-07-23"
       }

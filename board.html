@@ -72,14 +72,11 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
 <header>
   <h1>任務看板</h1>
   <span class="meta">資料時間:2026-07-24(台北)· 篩選:</span>
-  <button class="chip filter" data-owner="capo" style="--hue:149">capo</button><button class="chip filter" data-owner="chiatzu" style="--hue:250">chiatzu</button><button class="chip filter" data-owner="karen" style="--hue:109">karen</button>
+  <button class="chip filter" data-owner="chiatzu" style="--hue:250">chiatzu</button><button class="chip filter" data-owner="karen" style="--hue:109">karen</button><button class="chip filter" data-owner="capo" style="--hue:149">capo</button>
   <button class="toggle" id="theme-toggle">🌓 主題</button>
 </header>
 <main class="board">
-<section class="col" data-stage="plan"><h2>Plan <span class="count">15</span></h2><div class="col-cards"><article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">合併 LIFF XSS + /ff proxy 安全修補</div><div class="card-meta"><span class="step-id">T3-S1</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
-<article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">temp file 跨請求碰撞修復合併</div><div class="card-meta"><span class="step-id">T3-S2</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
-<article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">其餘未合併分支盤點處置</div><div class="card-meta"><span class="step-id">T3-S3</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
-<article class="card" data-owner="chiatzu" style="--hue:138"><div class="card-task">T6 finance-project-management 實戰回饋期</div><div class="card-title">MaintenancePage:分區對照</div><div class="card-meta"><span class="step-id">T6-S2</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
+<section class="col" data-stage="plan"><h2>Plan <span class="count">12</span></h2><div class="col-cards"><article class="card" data-owner="chiatzu" style="--hue:138"><div class="card-task">T6 finance-project-management 實戰回饋期</div><div class="card-title">MaintenancePage:分區對照</div><div class="card-meta"><span class="step-id">T6-S2</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:138"><div class="card-task">T6 finance-project-management 實戰回饋期</div><div class="card-title">MaintenancePage:區段預算</div><div class="card-meta"><span class="step-id">T6-S3</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:139"><div class="card-task">T7 video-weeklynews 後半:影片渲染端</div><div class="card-title">渲染端技術選型</div><div class="card-meta"><span class="step-id">T7-S1</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:139"><div class="card-task">T7 video-weeklynews 後半:影片渲染端</div><div class="card-title">渲染端 MVP</div><div class="card-meta"><span class="step-id">T7-S2</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
@@ -108,7 +105,6 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
 </main>
 <section class="summary">
 <h2>任務總覽</h2>
-<div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T3 linebot 積壓清理(安全修補優先)</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">6 條未合併分支;LIFF 檔名 XSS 與 /ff open proxy 修補 7/07 起躺在分支未進 main;另有 temp file 碰撞修復</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/3</span>   <span class="badge notify">每日追蹤</span></div></div>
 <div class="task-row" data-owner="chiatzu"><div class="task-row-head"><strong>T5 ndx-askcna-main 收尾</strong><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div><div class="task-desc">會員訂閱金流系統;2 條 claude/ 分支比 main 新(integrate-chat-service 部署重構);issue #2 部署驗證 8/10</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/2</span>  <span class="badge">Checkpoint 2026-07-24</span> <span class="badge notify">每週追蹤 (tue)</span></div></div>
 <div class="task-row" data-owner="chiatzu"><div class="task-row-head"><strong>T6 finance-project-management 實戰回饋期</strong><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div><div class="task-desc">專案財務對帳系統剛上線(7/12-7/16 共 23 commits);MaintenancePage 分區對照/區段預算兩分頁停用未完成</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/3</span>   <span class="badge notify">每週追蹤 (tue)</span></div></div>
 <div class="task-row" data-owner="chiatzu"><div class="task-row-head"><strong>T7 video-weeklynews 後半:影片渲染端</strong><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div><div class="task-desc">前半(輸入網站)7/16 完成;後半實際影片渲染端尚未開始</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/2</span> <span class="badge">渲染端 MVP · 2026-08-31</span>  <span class="badge notify">每週追蹤 (tue)</span></div></div>
@@ -243,34 +239,34 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
       "title": "linebot 積壓清理(安全修補優先)",
       "description": "6 條未合併分支;LIFF 檔名 XSS 與 /ff open proxy 修補 7/07 起躺在分支未進 main;另有 temp file 碰撞修復",
       "owner": "capo",
-      "status": "active",
+      "status": "done",
       "createdAt": "2026-07-18T02:49:10.564Z",
-      "updatedAt": "2026-07-18T02:49:10.880Z",
+      "updatedAt": "2026-07-24T01:24:23.300Z",
       "milestones": [],
       "steps": [
         {
           "id": "T3-S1",
           "title": "合併 LIFF XSS + /ff proxy 安全修補",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.643Z",
-          "updatedAt": "2026-07-18T02:49:10.643Z"
+          "updatedAt": "2026-07-24T01:24:16.660Z"
         },
         {
           "id": "T3-S2",
           "title": "temp file 跨請求碰撞修復合併",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.718Z",
-          "updatedAt": "2026-07-18T02:49:10.718Z"
+          "updatedAt": "2026-07-24T01:24:16.723Z"
         },
         {
           "id": "T3-S3",
           "title": "其餘未合併分支盤點處置",
-          "stage": "plan",
+          "stage": "done",
           "owner": "capo",
           "createdAt": "2026-07-18T02:49:10.765Z",
-          "updatedAt": "2026-07-18T02:49:10.765Z"
+          "updatedAt": "2026-07-24T01:24:16.780Z"
         }
       ],
       "checkpoints": [
@@ -281,7 +277,7 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
         }
       ],
       "notify": {
-        "cadence": "daily",
+        "cadence": "off",
         "weekday": null,
         "lastNotified": "2026-07-23"
       }

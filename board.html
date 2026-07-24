@@ -71,12 +71,12 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
 <body>
 <header>
   <h1>任務看板</h1>
-  <span class="meta">資料時間:2026-07-23(台北)· 篩選:</span>
+  <span class="meta">資料時間:2026-07-24(台北)· 篩選:</span>
   <button class="chip filter" data-owner="capo" style="--hue:149">capo</button><button class="chip filter" data-owner="chiatzu" style="--hue:250">chiatzu</button><button class="chip filter" data-owner="karen" style="--hue:109">karen</button>
   <button class="toggle" id="theme-toggle">🌓 主題</button>
 </header>
 <main class="board">
-<section class="col" data-stage="plan"><h2>Plan <span class="count">13</span></h2><div class="col-cards"><article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">合併 LIFF XSS + /ff proxy 安全修補</div><div class="card-meta"><span class="step-id">T3-S1</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
+<section class="col" data-stage="plan"><h2>Plan <span class="count">15</span></h2><div class="col-cards"><article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">合併 LIFF XSS + /ff proxy 安全修補</div><div class="card-meta"><span class="step-id">T3-S1</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
 <article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">temp file 跨請求碰撞修復合併</div><div class="card-meta"><span class="step-id">T3-S2</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
 <article class="card" data-owner="capo" style="--hue:135"><div class="card-task">T3 linebot 積壓清理(安全修補優先)</div><div class="card-title">其餘未合併分支盤點處置</div><div class="card-meta"><span class="step-id">T3-S3</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:138"><div class="card-task">T6 finance-project-management 實戰回饋期</div><div class="card-title">MaintenancePage:分區對照</div><div class="card-meta"><span class="step-id">T6-S2</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
@@ -87,6 +87,8 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
 <article class="card" data-owner="karen" style="--hue:141"><div class="card-task">T9 cna-mcp-client 前後端整合</div><div class="card-title">等待後端端點(issue #7)</div><div class="card-meta"><span class="step-id">T9-S1</span><span class="chip" data-owner="karen" style="--hue:109">karen</span></div></article>
 <article class="card" data-owner="karen" style="--hue:141"><div class="card-task">T9 cna-mcp-client 前後端整合</div><div class="card-title">sessions/用量/auth 接真後端</div><div class="card-meta"><span class="step-id">T9-S2</span><span class="chip" data-owner="karen" style="--hue:109">karen</span></div></article>
 <article class="card" data-owner="capo" style="--hue:213"><div class="card-task">T12 cna-photo-crop-studio 迭代</div><div class="card-title">下一輪迭代範圍決策</div><div class="card-meta"><span class="step-id">T12-S2</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
+<article class="card" data-owner="capo" style="--hue:215"><div class="card-task">T14 cna-translation-council 觀察期</div><div class="card-title">測試新版 API</div><div class="card-meta"><span class="step-id">T14-S2</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
+<article class="card" data-owner="capo" style="--hue:215"><div class="card-task">T14 cna-translation-council 觀察期</div><div class="card-title">交接給 Simon(需提供 API key)</div><div class="card-meta"><span class="step-id">T14-S3</span><span class="chip" data-owner="capo" style="--hue:149">capo</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:220"><div class="card-task">T19 cna-mcp-server 核心服務追蹤</div><div class="card-title">dev 分岔分支處置(與 main 岔開 51 commits,5週未動)</div><div class="card-meta"><span class="step-id">T19-S1</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
 <article class="card" data-owner="chiatzu" style="--hue:220"><div class="card-task">T19 cna-mcp-server 核心服務追蹤</div><div class="card-title">刪除已合併的 sql-combined 分支</div><div class="card-meta"><span class="step-id">T19-S2</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article></div></section>
 <section class="col" data-stage="in_dev"><h2>In Dev <span class="count">7</span></h2><div class="col-cards"><article class="card" data-owner="chiatzu" style="--hue:137"><div class="card-task">T5 ndx-askcna-main 收尾</div><div class="card-title">integrate-chat-service 分支處置</div><div class="card-meta"><span class="step-id">T5-S1</span><span class="chip" data-owner="chiatzu" style="--hue:250">chiatzu</span></div></article>
@@ -115,7 +117,7 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
 <div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T11 discord-claude-bridge 收尾</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">claude/session-gmecxf 分支(!cancel 指令 + stream-json 即時進度)比 main 新,未合併</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/1</span>   <span class="badge notify">每週追蹤 (mon)</span></div></div>
 <div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T12 cna-photo-crop-studio 迭代</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">7/15-16 完成 Phase 1-4 + 深連結/無頭入口/科學化修圖建議;進入編輯實測回饋期</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/2</span>   <span class="badge notify">每週追蹤 (mon)</span></div></div>
 <div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T13 news-knowledge-graph 維運觀察</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">從 478 萬篇稿件萃取 entity/共現關係,供 realtime-news-scout 判讀重要性;目前轉為每日 cron snapshot 維運模式,無人為開發</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/1</span>  <span class="badge">Checkpoint 2026-08-01</span> </div></div>
-<div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T14 cna-translation-council 觀察期</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">7/17 完成大型 refactor(整併翻譯產出/審核服務,pytest 20 passed);越南文/西班牙文每日 cron 產線運作中,先觀察一週穩定度</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/1</span>  <span class="badge">Checkpoint 2026-07-24</span> </div></div>
+<div class="task-row" data-owner="capo"><div class="task-row-head"><strong>T14 cna-translation-council 觀察期</strong><span class="chip" data-owner="capo" style="--hue:149">capo</span></div><div class="task-desc">7/17 完成大型 refactor(整併翻譯產出/審核服務,pytest 20 passed);越南文/西班牙文每日 cron 產線運作中,先觀察一週穩定度</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/3</span>  <span class="badge">Checkpoint 2026-07-24</span> </div></div>
 <div class="task-row" data-owner="karen"><div class="task-row-head"><strong>T15 auto-gov-crawler 維運觀察</strong><span class="chip" data-owner="karen" style="--hue:109">karen</span></div><div class="task-desc">131 個政府公告來源爬蟲;自動偵錯 -&gt; Claude autofix 開 PR -&gt; 人工合併的流程本身健康,純維運</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/1</span>  <span class="badge">Checkpoint 2026-08-01</span> </div></div>
 <div class="task-row" data-owner="karen"><div class="task-row-head"><strong>T16 receipt-intake-to-report 維運觀察</strong><span class="chip" data-owner="karen" style="--hue:109">karen</span></div><div class="task-desc">LINE Bot 報帳系統;role 更名與黑潮選項本週已合併收尾,無半成品</div><div class="progress"><div class="progress-bar" style="width:100%"></div></div><div class="task-badges"><span class="badge">步驟 1/1</span>   </div></div>
 <div class="task-row" data-owner="karen"><div class="task-row-head"><strong>T17 donate_reconciliation 維運觀察</strong><span class="chip" data-owner="karen" style="--hue:109">karen</span></div><div class="task-desc">小額捐款對帳工具;藍新 CSV 解析與 Chrome 外掛本週連修,屬邊上線邊修節奏</div><div class="progress"><div class="progress-bar" style="width:0%"></div></div><div class="task-badges"><span class="badge">步驟 0/1</span>   </div></div>
@@ -670,7 +672,7 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
       "owner": "capo",
       "status": "active",
       "createdAt": "2026-07-18T08:57:04.793Z",
-      "updatedAt": "2026-07-18T08:57:04.971Z",
+      "updatedAt": "2026-07-24T01:14:37.043Z",
       "milestones": [],
       "steps": [
         {
@@ -680,6 +682,22 @@ button.toggle { margin-left: auto; cursor: pointer; background: var(--card-bg); 
           "owner": "capo",
           "createdAt": "2026-07-18T08:57:04.857Z",
           "updatedAt": "2026-07-18T08:57:04.857Z"
+        },
+        {
+          "id": "T14-S2",
+          "title": "測試新版 API",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-24T01:14:36.979Z",
+          "updatedAt": "2026-07-24T01:14:36.979Z"
+        },
+        {
+          "id": "T14-S3",
+          "title": "交接給 Simon(需提供 API key)",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-24T01:14:37.043Z",
+          "updatedAt": "2026-07-24T01:14:37.043Z"
         }
       ],
       "checkpoints": [

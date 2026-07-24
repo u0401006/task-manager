@@ -539,7 +539,7 @@
       "owner": "capo",
       "status": "active",
       "createdAt": "2026-07-18T08:57:04.793Z",
-      "updatedAt": "2026-07-18T08:57:04.971Z",
+      "updatedAt": "2026-07-24T01:14:37.043Z",
       "milestones": [],
       "steps": [
         {
@@ -549,6 +549,22 @@
           "owner": "capo",
           "createdAt": "2026-07-18T08:57:04.857Z",
           "updatedAt": "2026-07-18T08:57:04.857Z"
+        },
+        {
+          "id": "T14-S2",
+          "title": "測試新版 API",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-24T01:14:36.979Z",
+          "updatedAt": "2026-07-24T01:14:36.979Z"
+        },
+        {
+          "id": "T14-S3",
+          "title": "交接給 Simon(需提供 API key)",
+          "stage": "plan",
+          "owner": "capo",
+          "createdAt": "2026-07-24T01:14:37.043Z",
+          "updatedAt": "2026-07-24T01:14:37.043Z"
         }
       ],
       "checkpoints": [
